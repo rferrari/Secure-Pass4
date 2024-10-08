@@ -34,6 +34,17 @@ class TestSecurePass4(unittest.TestCase):
         #print(resultado)
         self.assertEqual(resultado, self.senha_fraca, "A senha criptografada deve ser igual a senha original.")
 
+    def test_gerar_senha(self):
+        """Teste para verificar geração de senha."""
+        resultado = gerar_senha()
+        print("Senha Gerada: " + resultado)
+        self.assertNotEqual(resultado, "", "A senha gerada não deve estar vazia.")
+
+        resultado = gerar_senha(6, True, False, False)
+        print("Senha Gerada: " + resultado)
+        self.assertNotEqual(resultado, "", "A senha gerada não deve estar vazia.")
+
+        
 
 
 if __name__ == "__main__":
