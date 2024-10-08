@@ -1,5 +1,5 @@
 import os
-from secure_pass4.crypt_pass4.crypto_pass4 import criptografar_senha, descriptografar_senha
+from secure_pass4.crypto_pass4.crypto_pass4 import criptografar_senha, descriptografar_senha
 
 def salvar_senha(site, senha):
     """Salva uma senha criptografada para um site em um arquivo de texto."""

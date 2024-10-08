@@ -6,10 +6,11 @@ from secure_pass4.save_pass4.save_pass4 import salvar_senha, carregar_senhas
 from secure_pass4.secure_pass4 import gerar_senha, avaliar_forca
 
 class TestSecurePass4(unittest.TestCase):
+
     def setUp(self):
         """Executado antes de cada teste."""
-        self.senha = "MinhaSenha123$egura"
-        self.senha_fraca = "123456"
+        self.senha = gerar_senha(26, True, True)
+        self.senha_fraca = gerar_senha(6, False, False)
         self.senha_criptografada = criptografar_senha(self.senha)
         self.senha_fraca_cripto = criptografar_senha(self.senha_fraca)
 
@@ -79,6 +80,13 @@ class TestSecurePass4(unittest.TestCase):
         self.assertIsNotNone(chave, "A chave gerada não deve ser None.")
         self.assertEqual(len(chave), 44, "O comprimento da chave deve ser 44 bytes.")  # Fernet keys are 44 bytes
         self.assertTrue(os.path.exists("chave.key"), "O arquivo chave.key deve existir após gerar a chave.")
+
+    def test_gerar_senha(self):
+        """Teste para verificar geração de senha."""
+        resultado = gerar_senha()
+        forca = avaliar_forca(resultado)
+        self.assertEqual(forca, "Forte", "A senha gerada deve ser considerada 'Forte'.")
+        self.assertNotEqual(resultado, "", "A senha gerada não deve estar vazia.")
 
 
 if __name__ == "__main__":

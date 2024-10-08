@@ -19,6 +19,7 @@ def carregar_chave():
     with open("chave.key", "rb") as chave_file:
         return chave_file.read()
 
+
 def criptografar_senha(senha):
     """Criptografa uma senha."""
     chave = carregar_chave()
