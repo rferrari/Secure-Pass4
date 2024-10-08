@@ -1,6 +1,6 @@
 import unittest
 
-from secure_pass4.secure_pass4 import criptografar_senha, descriptografar_senha
+from secure_pass4.crypt_pass4.crypto_pass import criptografar_senha, descriptografar_senha
 
 class TestSecurePass4(unittest.TestCase):
     def setUp(self):
@@ -14,7 +14,7 @@ class TestSecurePass4(unittest.TestCase):
         """Teste para verificar a criptografia da senha."""
         resultado = criptografar_senha(self.senha)
         self.assertNotEqual(resultado, self.senha, "A senha criptografada deve ser diferente da senha original.")
-        
+
         resultado = descriptografar_senha(resultado)
         self.assertEqual(resultado, self.senha, "A senha criptografada deve ser igual aa senha original.")
         
