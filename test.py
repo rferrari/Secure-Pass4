@@ -59,6 +59,16 @@ class TestSecurePass4(unittest.TestCase):
         self.assertEqual(forca, "Moderada", "A senha gerada deve ser considerada 'Moderada'.")
         self.assertNotEqual(resultado, "", "A senha gerada não deve estar vazia.")
 
+    def test_salvar_e_carregar_senhas(self):
+        """Teste para salvar e carregar senhas."""
+        site = 'site.com.br'
+        
+        salvar_senha(site, self.senha)
+        senhas_carregadas = carregar_senhas()
+    
+        # Verificar se a senha está associada corretamente ao site
+        self.assertIn(site, senhas_carregadas, "O site deve estar presente nas senhas carregadas.")
+        self.assertEqual(senhas_carregadas[site], self.senha, "A senha deve estar correta para o site.")
 
 
 
