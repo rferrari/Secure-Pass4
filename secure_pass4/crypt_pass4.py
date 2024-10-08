@@ -28,9 +28,10 @@ def criptografar_senha(senha):
 
 def descriptografar_senha(senha_criptografada):
     """Descriptografa uma senha."""
-    senha = ""
+    chave = carregar_chave()
+    fernet = Fernet(chave)
+    senha = fernet.decrypt(senha_criptografada).decode()
     return senha
-
 
 #gerar_chave()
 #mykey = carregar_chave()
@@ -38,3 +39,6 @@ def descriptografar_senha(senha_criptografada):
 #    mykey = mykey.decode('utf-8')  # convert from bytes to string before print b``
 #    print(f"{mykey}")
 
+#cyper = criptografar_senha("ABC1234")
+#print(cyper)
+#print(descriptografar_senha(cyper))
