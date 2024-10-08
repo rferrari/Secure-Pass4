@@ -34,7 +34,7 @@ class TestSecurePass4(unittest.TestCase):
         #print(resultado)
         self.assertEqual(resultado, self.senha_fraca, "A senha criptografada deve ser igual a senha original.")
 
-    def test_gerar_senha(self):
+    def test_gerar_senha_forte(self):
         """Teste para verificar geração de senha."""
         resultado = gerar_senha()
         #print("Senha Gerada: " + resultado)
@@ -42,13 +42,15 @@ class TestSecurePass4(unittest.TestCase):
         self.assertEqual(forca, "Forte", "A senha gerada deve ser considerada 'Forte'.")
         self.assertNotEqual(resultado, "", "A senha gerada não deve estar vazia.")
 
+    def test_gerar_senha_fraca(self):
         resultado = gerar_senha(6, True, False, False)
         #print("Senha Gerada: " + resultado)
         forca = avaliar_forca(resultado)
         self.assertEqual(forca, "Fraca", "A senha gerada deve ser considerada 'Fraca'.")
         self.assertNotEqual(resultado, "", "A senha gerada não deve estar vazia.")
 
-        resultado = gerar_senha(8, True, True, False)
+    def test_gerar_senha_moderada(self):
+        resultado = gerar_senha(10, True, True, False)
         #print("Senha Gerada: " + resultado)
         forca = avaliar_forca(resultado)
         self.assertEqual(forca, "Moderada", "A senha gerada deve ser considerada 'Moderada'.")
