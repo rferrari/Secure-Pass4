@@ -8,7 +8,7 @@ setup(
     long_description_content_type='text/markdown',
     author='Adam Ferrari',
     author_email='rferrariwd@gmail.com',
-    url='https://github.com/rferrari/Secure-Pass4',
+    url='https://github.com/rferrari/secure_pass4',
     packages=find_packages(),   
     include_package_data=True,  
     install_requires=[
@@ -16,7 +16,7 @@ setup(
     ],
     classifiers=[
         'Programming Language :: Python :: 3',      # Versão do Python
-        'License :: MIT License',                   # Licença
+        'License :: OSI Approved :: MIT License',  # Licença
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.6',                        # Versão mínima do Python necessária
