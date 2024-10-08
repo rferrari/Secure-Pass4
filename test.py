@@ -16,10 +16,13 @@ class TestSecurePass4(unittest.TestCase):
         resultado = criptografar_senha(self.senha)
         #print(resultado)
         self.assertNotEqual(resultado, self.senha, "A senha criptografada deve ser diferente da senha original.")
-
         resultado = descriptografar_senha(resultado)
         #print(resultado)
         self.assertEqual(resultado, self.senha, "A senha criptografada deve ser igual aa senha original.")
+
+        senha = gerar_senha(10, True, True, False)
+        resultado = criptografar_senha(senha)
+        self.assertNotEqual(resultado, senha, "A senha criptografada deve ser diferente da senha original.")        
         
 
     def test_descriptografar_senha(self):
@@ -56,7 +59,7 @@ class TestSecurePass4(unittest.TestCase):
         self.assertEqual(forca, "Moderada", "A senha gerada deve ser considerada 'Moderada'.")
         self.assertNotEqual(resultado, "", "A senha gerada não deve estar vazia.")
 
-        
+
 
 
 if __name__ == "__main__":
