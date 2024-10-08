@@ -12,6 +12,9 @@ def gerar_senha(comprimento=12, incluir_letras=True, incluir_numeros=True, inclu
     if incluir_simbolos:
         caracteres += string.punctuation
 
+    if not caracteres:
+        raise ValueError("Nenhum tipo de caractere foi selecionado para gerar a senha.")
+
     senha = ''.join(secrets.choice(caracteres) for _ in range(comprimento))
     return senha
 
