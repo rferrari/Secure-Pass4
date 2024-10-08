@@ -1,7 +1,7 @@
 import unittest
 import os
 
-from secure_pass4.crypt_pass4.crypto_pass4 import criptografar_senha, descriptografar_senha, gerar_chave, carregar_chave
+from secure_pass4.crypto_pass4.crypto_pass4 import criptografar_senha, descriptografar_senha, gerar_chave, carregar_chave
 from secure_pass4.save_pass4.save_pass4 import salvar_senha, carregar_senhas
 from secure_pass4.secure_pass4 import gerar_senha, avaliar_forca
 
