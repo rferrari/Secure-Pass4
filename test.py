@@ -1,6 +1,8 @@
 import unittest
-from secure_pass4.crypt_pass4.crypto_pass import criptografar_senha, descriptografar_senha
-from secure_pass4.save_pass4.save_pass import salvar_senha, carregar_senhas
+import os
+
+from secure_pass4.crypt_pass4.crypto_pass4 import criptografar_senha, descriptografar_senha, gerar_chave, carregar_chave
+from secure_pass4.save_pass4.save_pass4 import salvar_senha, carregar_senhas
 from secure_pass4.secure_pass4 import gerar_senha, avaliar_forca
 
 class TestSecurePass4(unittest.TestCase):
@@ -70,6 +72,13 @@ class TestSecurePass4(unittest.TestCase):
         self.assertIn(site, senhas_carregadas, "O site deve estar presente nas senhas carregadas.")
         self.assertEqual(senhas_carregadas[site], self.senha, "A senha deve estar correta para o site.")
 
+    def test_gerar_chave(self):
+        gerar_chave()
+        chave = carregar_chave()
+
+        self.assertIsNotNone(chave, "A chave gerada não deve ser None.")
+        self.assertEqual(len(chave), 44, "O comprimento da chave deve ser 44 bytes.")  # Fernet keys are 44 bytes
+        self.assertTrue(os.path.exists("chave.key"), "O arquivo chave.key deve existir após gerar a chave.")
 
 
 if __name__ == "__main__":
