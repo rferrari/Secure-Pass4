@@ -10,3 +10,16 @@ def salvar_senha(site, senha):
 
 def carregar_senhas():
     """Carrega e descriptografa todas as senhas do arquivo de senhas."""
+    if not os.path.exists("securepass4.safe"):
+        return "Nenhuma senha salva."
+
+    with open("securepass4.safe", "r") as arquivo_senhas:
+        senhas = arquivo_senhas.readlines()
+
+    senhas_descriptografadas = {}
+    for linha in senhas:
+        site, senha_criptografada = linha.strip().split(": ")
+        senha_descriptografada = descriptografar_senha(senha_criptografada.encode())
+        senhas_descriptografadas[site] = senha_descriptografada
+
+    return senhas_descriptografadas
