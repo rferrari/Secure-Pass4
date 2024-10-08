@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='secure_pass4',
-    version='0.1',  
+    version='0.2',  
     description='Gerador e gerenciador de senhas básico com funcionalidades de criptografia.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',

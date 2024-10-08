@@ -15,7 +15,7 @@ Salve o arquivo `chave.key` em um local seguro, pois você precisará dele para 
 
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/rferrariwd/secure_pass4.git
+    git clone https://github.com/rferrari/secure_pass4.git
     cd secure_pass4
     ```
 
